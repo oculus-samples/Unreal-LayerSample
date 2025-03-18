@@ -2,15 +2,13 @@
 
 # Compositor Layer Sample
 
-This sample provides blueprints illustrating the use of VR compositor layers to display a UMG UI widgets.
+This sample provides blueprints illustrating the use of VR compositor layers to display [Unreal Motion Graphics UI widgets](https://dev.epicgames.com/documentation/en-us/unreal-engine/umg-ui-designer-quick-start-guide-in-unreal-engine).
 
-The app displays two spheres that track with the Touch controllers and two UMG widgets rendered as VR compositor layers. One is rendered as a quad layer and the other as a cylinder layer.
+The app displays a UMG UI widget that can be toggled between rendering as a compositor layer using Unreal's StereoLayer API, and rendering in Unreal's main pass. Additionally, it showcases some of the non-quad shapes available for compositor layers.
 
-Actor_Blueprint illustrates rendering a widget into a stereo layer. The widget is first rendered into a material, then the SlateUI texture is pulled from the material into the stereo layer. This is the UMG widget that is rendered to the quad and cylindrical layers in the sample.
+Interact with the scene by pointing with your right Touch controller, and pressing the right trigger to press buttons.
 
-Open MenuBlueprint to open the UMG widget in the UMG Editor.
-
-NewGameMode and VRCharacter are used to initialize the scene and make the scene display at the appropriate height.
+`MenuActor` illustrates rendering a widget into a stereo layer. In its `Tick` event, the Render Target of its `Menu` widget is set as the texture of the stereo layer. Its `OnToggleClicked_Event` shows how to disable Widget in-scene rendering, which is recommended since the stereo layer will display the Widget to the user.
 
 ## How to Use
 
@@ -53,7 +51,7 @@ Make sure you have Visual Studio installed properly:
 - Under the Workloads tab, click Game development with C++ if it isn’t checked and then click Modify.
 
 1. Download the source code from the [Meta fork of Epic’s Unreal Engine on GitHub](https://github.com/Oculus-VR/UnrealEngine).
-2. Follow Epic’s instructions on [Building Unreal Engine from Source](https://docs.unrealengine.com/5.2/en-US/building-unreal-engine-from-source/) to complete the process.
+2. Follow Epic’s instructions on [Building Unreal Engine from Source](https://dev.epicgames.com/documentation/en-us/unreal-engine/building-unreal-engine-from-source/) to complete the process.
 3. Launch the Unreal Editor
 4. From "Recent Projects", click "Browse" and select `LayerSample.uproject`
 
